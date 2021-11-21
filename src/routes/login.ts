@@ -50,12 +50,18 @@ export const logoutUser = async (
   req: Request,
   res: Response
 ): Promise<void> => {
+  console.log('LLEGO AL LOGOUT');
   if (req.isAuthenticated()) {
-    const etherealService = new Email('ethereal');
+    const etherealService = new Email('gmail');
     const userData: User = req.user;
 
     const content = `<p> ${userData.displayName}, ${new Date()}</p>`;
-    await etherealService.sendEmail(Config.ETHEREAL_EMAIL, 'Log out', content);
+    const mailResult = await etherealService.sendEmail(
+      Config.ETHEREAL_EMAIL,
+      'Log out',
+      content
+    );
+    console.log(mailResult);
   }
   req.session.destroy((err) => {
     if (err) res.status(500).json({ message: 'Ocurrió un error' });

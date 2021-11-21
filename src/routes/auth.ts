@@ -5,7 +5,7 @@ import UserRouter from './user';
 const router = Router();
 
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('partials/login');
 });
 
 router.get(
@@ -22,10 +22,10 @@ router.get(
 );
 
 router.get('/fail', (req, res) => {
-  res.render('login-error', {});
+  res.render('partials/login-error', {});
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', async (req, res) => {
   req.logout();
   res.redirect('/api/login');
 });
@@ -62,7 +62,7 @@ router.get('/datos', (req, res) => {
 
     if (userData.emails) email = userData.emails[0].value;
 
-    res.render('datos', {
+    res.render('partials/datos', {
       nombre: userData.displayName,
       contador: userData.contador,
       foto,

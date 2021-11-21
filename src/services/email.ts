@@ -23,6 +23,7 @@ export class Email {
         address: Config.ETHEREAL_EMAIL,
         host: 'smtp.ethereal.email',
         port: 587,
+        secure: false,
         auth: {
           user: Config.ETHEREAL_EMAIL,
           pass: Config.ETHEREAL_PASSWORD,

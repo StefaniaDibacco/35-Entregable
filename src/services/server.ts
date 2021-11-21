@@ -52,6 +52,9 @@ app.engine(
 );
 
 app.use('/api', router);
+app.get('/', (req, res) => {
+  res.render('main');
+});
 
 // creo mi configuracion para socket
 const myServer = new http.Server(app);
