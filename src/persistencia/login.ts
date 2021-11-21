@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Request, Response } from 'express';
 import Config from '../config';
 import { Email } from '../services/email';
@@ -9,7 +10,6 @@ type Photos = {
 type Emails = {
   value: string;
 };
-// eslint-disable-next-line no-undef
 interface User extends Express.User {
   displayName?: string;
   photos?: Photos[];

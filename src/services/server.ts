@@ -38,7 +38,7 @@ const defaultLayerPth = path.resolve(
   __dirname,
   '../../views/layouts/index.hbs'
 );
-const partialDirPath = path.resolve(__dirname, '../../views/partials');
+const partialDirPath = path.resolve(__dirname, '../../views/partials/');
 
 app.set('view engine', 'hbs');
 app.engine(
@@ -51,7 +51,7 @@ app.engine(
   })
 );
 
-app.use('/api/', router);
+app.use('/api', router);
 
 // creo mi configuracion para socket
 const myServer = new http.Server(app);

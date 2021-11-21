@@ -8,14 +8,6 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-/**
- * http://www.passportjs.org/docs/facebook/
- * Two routes are required for Facebook authentication.
- * The first route redirects the user to Facebook.
- * The second route is the URL to which Facebook will redirect the user after they have logged in.
- * Note that the URL of the callback route matches that of the callbackURL option specified when configuring the strategy.
- * */
-
 router.get(
   '/auth/facebook',
   passport.authenticate('facebook', { scope: ['email'] })
